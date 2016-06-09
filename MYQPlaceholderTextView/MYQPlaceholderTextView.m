@@ -24,7 +24,15 @@ IB_DESIGNABLE
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        [self step];
+        [self addSubview:self.placeholderTextView];
+        [self.placeholderTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.and.top.equalTo(@0);
+            make.height.lessThanOrEqualTo(self);
+            make.width.lessThanOrEqualTo(self);
+        }];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged) name:UITextViewTextDidChangeNotification object:self];
+        [self addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
     }
     return self;
 }
@@ -35,19 +43,6 @@ IB_DESIGNABLE
     self.placeholderTextView.font = self.font;
 }
 
-- (void)awakeFromNib{
-    [super awakeFromNib];
-    
-    [self step];
-}
-
-- (void)step{
-    [self addSubview:self.placeholderTextView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged) name:UITextViewTextDidChangeNotification object:self];
-    [self addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
-}
-
 #pragma mark - getter
 - (UITextView *)placeholderTextView{
     if (!_placeholderTextView) {
@@ -55,14 +50,16 @@ IB_DESIGNABLE
         _placeholderTextView.backgroundColor = [UIColor clearColor];
         _placeholderTextView.userInteractionEnabled = NO;
         _placeholderTextView.textColor = [UIColor lightGrayColor];
-        _placeholderTextView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        _placeholderTextView.translatesAutoresizingMaskIntoConstraints = NO;
+        _placeholderTextView.scrollEnabled = NO;
+        //_placeholderTextView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }
     return _placeholderTextView;
 }
 #pragma mark - setting
 - (void)setPlaceholder:(NSString *)placeholder{
     _placeholder = placeholder;
-    self.placeholderTextView.text = placeholder;
+    [self textDidChanged];
 }
 
 #pragma mark - private
@@ -71,6 +68,9 @@ IB_DESIGNABLE
     self.placeholderTextView.hidden = !disPlayPlaceholder;
     if (disPlayPlaceholder) {
         self.placeholderTextView.font = self.font;
+        self.placeholderTextView.text = self.placeholder;
+    }else{
+        self.placeholderTextView.text = nil;
     }
 }
 
