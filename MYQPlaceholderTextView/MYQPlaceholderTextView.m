@@ -9,7 +9,7 @@
 IB_DESIGNABLE
 
 #import "MYQPlaceholderTextView.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 //define this constant if you want to use Masonry without the 'mas_' prefix
 #define MAS_SHORTHAND
