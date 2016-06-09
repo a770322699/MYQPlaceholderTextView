@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C77CB714BEC42CB31224E1B /* libPods-MYQPlaceholderTextViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8CE5A81EF7BCA54ED9188A /* libPods-MYQPlaceholderTextViewDemo.a */; };
 		D81A0DD81D05954A00BCCBE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D81A0DD71D05954A00BCCBE4 /* main.m */; };
 		D81A0DDB1D05954A00BCCBE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D81A0DDA1D05954A00BCCBE4 /* AppDelegate.m */; };
 		D81A0DDE1D05954A00BCCBE4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D81A0DDD1D05954A00BCCBE4 /* ViewController.m */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15F718360F8311025A9BC284 /* Pods-MYQPlaceholderTextViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYQPlaceholderTextViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MYQPlaceholderTextViewDemo/Pods-MYQPlaceholderTextViewDemo.release.xcconfig"; sourceTree = "<group>"; };
+		6759C3476A7810615F01B20D /* Pods-MYQPlaceholderTextViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYQPlaceholderTextViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MYQPlaceholderTextViewDemo/Pods-MYQPlaceholderTextViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		6F8CE5A81EF7BCA54ED9188A /* libPods-MYQPlaceholderTextViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MYQPlaceholderTextViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81A0DD31D05954A00BCCBE4 /* MYQPlaceholderTextViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYQPlaceholderTextViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81A0DD71D05954A00BCCBE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D81A0DD91D05954A00BCCBE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,18 +40,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C77CB714BEC42CB31224E1B /* libPods-MYQPlaceholderTextViewDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		921DCC4996D55C52434420D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F8CE5A81EF7BCA54ED9188A /* libPods-MYQPlaceholderTextViewDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D81A0DCA1D05954900BCCBE4 = {
 			isa = PBXGroup;
 			children = (
 				D81A0DED1D05962800BCCBE4 /* MYQPlaceholderTextView */,
 				D81A0DD51D05954A00BCCBE4 /* MYQPlaceholderTextViewDemo */,
 				D81A0DD41D05954A00BCCBE4 /* Products */,
+				E577FE0DDB4FB98A0836D0EE /* Pods */,
+				921DCC4996D55C52434420D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +108,15 @@
 			path = ../MYQPlaceholderTextView;
 			sourceTree = "<group>";
 		};
+		E577FE0DDB4FB98A0836D0EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6759C3476A7810615F01B20D /* Pods-MYQPlaceholderTextViewDemo.debug.xcconfig */,
+				15F718360F8311025A9BC284 /* Pods-MYQPlaceholderTextViewDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -100,9 +124,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D81A0DEA1D05954A00BCCBE4 /* Build configuration list for PBXNativeTarget "MYQPlaceholderTextViewDemo" */;
 			buildPhases = (
+				08FB813AA1271B25E3CAA761 /* [CP] Check Pods Manifest.lock */,
 				D81A0DCF1D05954A00BCCBE4 /* Sources */,
 				D81A0DD01D05954A00BCCBE4 /* Frameworks */,
 				D81A0DD11D05954A00BCCBE4 /* Resources */,
+				83C70534BF173ED9B1736174 /* [CP] Embed Pods Frameworks */,
+				0B1FC66B23197DB0FE5EC940 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,6 +184,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08FB813AA1271B25E3CAA761 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0B1FC66B23197DB0FE5EC940 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MYQPlaceholderTextViewDemo/Pods-MYQPlaceholderTextViewDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83C70534BF173ED9B1736174 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MYQPlaceholderTextViewDemo/Pods-MYQPlaceholderTextViewDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D81A0DCF1D05954A00BCCBE4 /* Sources */ = {
@@ -278,6 +353,7 @@
 		};
 		D81A0DEB1D05954A00BCCBE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6759C3476A7810615F01B20D /* Pods-MYQPlaceholderTextViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MYQPlaceholderTextViewDemo/Info.plist;
@@ -289,6 +365,7 @@
 		};
 		D81A0DEC1D05954A00BCCBE4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15F718360F8311025A9BC284 /* Pods-MYQPlaceholderTextViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MYQPlaceholderTextViewDemo/Info.plist;

@@ -31,15 +31,7 @@ IB_DESIGNABLE
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        [self addSubview:self.placeholderTextView];
-        [self.placeholderTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.and.top.equalTo(@0);
-            make.height.lessThanOrEqualTo(self);
-            make.width.lessThanOrEqualTo(self);
-        }];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged) name:UITextViewTextDidChangeNotification object:self];
-        [self addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
+        [self step];
     }
     return self;
 }
@@ -48,6 +40,24 @@ IB_DESIGNABLE
     [super willMoveToSuperview:newSuperview];
     
     self.placeholderTextView.font = self.font;
+}
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    
+    [self step];
+}
+
+- (void)step{
+    [self addSubview:self.placeholderTextView];
+    [self.placeholderTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.and.top.equalTo(@0);
+        make.height.lessThanOrEqualTo(self);
+        make.width.lessThanOrEqualTo(self);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged) name:UITextViewTextDidChangeNotification object:self];
+    [self addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 #pragma mark - getter
