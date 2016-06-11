@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MYQPlaceholderTextView"
-  s.version      = "0.0.3"
+  s.version      = "0.0.5"
   s.summary      = "A has placeholderTextView text view."
 
   s.homepage     = "https://github.com/a770322699/MYQPlaceholderTextView"
@@ -45,6 +45,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency 'Masonry', '~> 0.6'
+  # s.dependency 'Masonry', '~> 0.6'
 
 end

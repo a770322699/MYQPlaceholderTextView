@@ -6,16 +6,7 @@
 //  Copyright © 2016年 yiquan. All rights reserved.
 //
 
-IB_DESIGNABLE
-
 #import "MYQPlaceholderTextView.h"
-#import <Masonry/Masonry.h>
-
-//define this constant if you want to use Masonry without the 'mas_' prefix
-#define MAS_SHORTHAND
-
-//define this constant if you want to enable auto-boxing for default syntax
-#define MAS_SHORTHAND_GLOBALS
 
 @interface MYQPlaceholderTextView ()
 
@@ -50,11 +41,16 @@ IB_DESIGNABLE
 
 - (void)step{
     [self addSubview:self.placeholderTextView];
-    [self.placeholderTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.and.top.equalTo(@0);
-        make.height.lessThanOrEqualTo(self);
-        make.width.lessThanOrEqualTo(self);
-    }];
+//    [self.placeholderTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.leading.and.top.equalTo(@0);
+//        make.height.lessThanOrEqualTo(self);
+//        make.width.lessThanOrEqualTo(self);
+//    }];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.placeholderTextView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.placeholderTextView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.placeholderTextView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.placeholderTextView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged) name:UITextViewTextDidChangeNotification object:self];
     [self addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
